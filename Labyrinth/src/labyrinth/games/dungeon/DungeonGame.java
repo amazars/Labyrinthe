@@ -20,7 +20,7 @@ public class DungeonGame extends Game{
         c2 = new Room("dans le faucon millenium");
         a3 = new Room("en train de détruire le bouclier sur Endor");
         a4_out = new Room("dans l'étoile de la mort");
-        
+         
         // initialisation des sorties des pièces
         c1_in.setExit(Direction.SOUTH, c2);
 		
