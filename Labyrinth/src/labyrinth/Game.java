@@ -154,14 +154,24 @@ public abstract class Game {
      * Message d'accueil dans le jeu.
      */
     protected void printWelcome() {
-        System.out.println("     ____         _ ");
-        System.out.println("    |_  /  _ _  _| |");
-        System.out.println("     / / || | || | |");
-        System.out.println("    /___\\_,_|\\_,_|_|");
+
+		System.out.println("    .          __---__");
+		System.out.println("  .     .   .-'...:...'-.               .          .");
+		System.out.println("           / .  . : .__ .\\  .");    
+		System.out.println("    .     /........./  \\ .\\ .   .                  .");
+		System.out.println("         / :  :   :| () | :\\                  .        .");
+		System.out.println("        :...........\\__/....:         .");
+		System.out.println(" .      |___________________|              .   ");               
+		System.out.println("        |...................|               .");
+		System.out.println("  .     :  :  :   :   :   : :                          .");
+		System.out.println("      .  \\................./      .            .");
+		System.out.println("          \\  .  . : .  .  /   .            ");
+		System.out.println(".      .   \\._........._./  .        .                   .");
+		System.out.println("              -..___..-                .         .");
         System.out.println();
-        System.out.println("Bienvenue. Zuul est un nouveau jeu d'aventure terriblement ennuyeux.");
+        System.out.println("Bienvenue jeune padawan, que la force soit avec vous !");
         System.out.println();
-        System.out.println("En dernier recours, tapez 'aide'.");
+        System.out.println("Si la force vous quitte, tapez 'aide'.");
         System.out.println();
     }
 

@@ -102,16 +102,16 @@ public class DungeonGame extends Game{
         if (enter==false){	/*false indique que currentRoom n'est pas une sortie*/
         	if (healthPoints<=0){
         	  
-        		System.out.println("Vous avez 0 point de vie.");
+        		System.out.println("Vous avez 0 point de force.");
         		System.out.println("Vous êtes mort ! La partie est perdue.");
         		return true;
         	}
         	else{
         		if (healthPoints==1){
-        			System.out.println("Vous avez 1 point de vie.");
+        			System.out.println("Vous avez 1 point de force.");
         		}
         		else{
-        			System.out.println("Vous avez "+ healthPoints+" points de vie.");
+        			System.out.println("Vous avez "+ healthPoints+" points de force.");
         		}
         	}
         }
