@@ -3,12 +3,12 @@ package labyrinth;
 
 public abstract class Game {
     protected Room currentRoom;
+    protected int healthPoint;
 
     /**
      * Construction du labyrinthe et de sa carte interne.
      */
     public Game() {
-    	
         currentRoom = this.createRooms();
     }
 
@@ -42,6 +42,10 @@ public abstract class Game {
     protected boolean enterRoom(Room room) {
         currentRoom = room;
         return currentRoom.enter(this);
+    }
+    
+    public void setHealth(int difficulte){
+    	healthPoint -= difficulte;
     }
 
     /**
