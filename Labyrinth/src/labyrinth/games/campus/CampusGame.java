@@ -40,7 +40,7 @@ public class CampusGame extends Game {
         lab.setExit(Direction.EAST, office);
 
         office.setExit(Direction.WEST, lab);
-
+        
         return outside;
     }
 }
