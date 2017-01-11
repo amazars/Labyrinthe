@@ -8,6 +8,7 @@ public abstract class Game {
      * Construction du labyrinthe et de sa carte interne.
      */
     public Game() {
+    	//thomas est un caca
         currentRoom = this.createRooms();
     }
 
