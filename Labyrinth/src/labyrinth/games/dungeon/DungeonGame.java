@@ -9,8 +9,9 @@ public class DungeonGame extends Game{
 
 	public static void main(String[] args) {
 		new CampusGame().play();
+		
     }
-
+	
     protected Room createRooms() {
     	Room outside, hall, amphi, cafet, lab, office;
 
