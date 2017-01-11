@@ -18,6 +18,7 @@ public class DungeonGame extends Game{
     	// création des pièces
         c1_in = new Room("sur Tatooine");
         c2 = new Room("dans le faucon millenium");
+        a2 = new Room("bloqué par Le Destroyer Stellaire classe - 1");
         a3 = new Room("en train de détruire le bouclier sur Endor");
         a4_out = new Room("dans l'étoile de la mort");
          
