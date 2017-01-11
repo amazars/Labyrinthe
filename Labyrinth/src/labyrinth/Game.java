@@ -1,5 +1,6 @@
 package labyrinth;
 
+
 public abstract class Game {
     protected Room currentRoom;
 
