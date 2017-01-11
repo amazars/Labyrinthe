@@ -3,7 +3,7 @@ package labyrinth;
 
 public abstract class Game {
     protected Room currentRoom;
-    protected int healthPoint;
+   
 
     /**
      * Construction du labyrinthe et de sa carte interne.
@@ -44,10 +44,7 @@ public abstract class Game {
         return currentRoom.enter(this);
     }
     
-    public void setHealth(int difficulte){
-    	healthPoint -= difficulte;
-    }
-
+    
     /**
      * Boucle principale du jeu. Demande et exécute des commandes jusqu'à la fin du jeu.
      */

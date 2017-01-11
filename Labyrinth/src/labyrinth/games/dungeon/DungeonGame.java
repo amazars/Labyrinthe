@@ -6,19 +6,32 @@ import labyrinth.Room;
 import labyrinth.games.dungeon.DungeonGame;
 
 public class DungeonGame extends Game{
-
+	 protected int healthPoints;
+	 protected int dec;
+	 
 	public static void main(String[] args) {
-		new DungeonGame().play();
-		
+		new DungeonGame(10, 1).play();
     }
 	
+	public DungeonGame(int healthPoints, int dec){
+		this.healthPoints=healthPoints+dec; /* On ajoute +dec car on modifie healthPoints dès le début du jeu*/
+		this.dec=dec;
+	}
+	
+	public void setHealthDown(int difficulte){
+    	healthPoints -= difficulte;
+    }
+    public void setHealthUp(int bonus){
+    	healthPoints += bonus;
+    }
+    
     protected Room createRooms() {
     	Room c1_in, a2, b2, c2, f3, a3, c3, d3, e3, a4_out, c4, e4, e5, c5, d5, f5, d6;
     	
     	// création des pièces
     	a2 = new Room("bloqué par Le Destroyer Stellaire classe - 1"); //bloqué il faut la force
         a3 = new Room("en train de détruire le bouclier sur Endor");
-        a4_out = new Room("dans l'étoile de la mort");
+        a4_out = new ExitRoom("dans l'étoile de la mort");
         b2 = new Room("sur Yog 'Dhul"); 
         c1_in = new Room("sur Tatooine");
         c2 = new Room("dans le Faucon Millenium");
@@ -30,7 +43,7 @@ public class DungeonGame extends Game{
         d6 = new ObstacleRoom("touché par un escadon de clones", 3); //perte de point
         e3 = new Room("sur Dagoba, vous vous êtes ecrasé"); //perte d'un point une seul fois
         e4 = new Room("sur Mustafar");
-        e5 = new Room("sur Hoth, Obi-Wan se revèle à vous"); //gain de force
+        e5 = new BonusRoom("sur Hoth, Obi-Wan se revèle à vous", 4); //gain de force
         f3 = new Room("salué par Yoda"); //gain de force : clefs
         
         
@@ -67,6 +80,42 @@ public class DungeonGame extends Game{
         f3.setExit(Direction.WEST, e3);
         
         return c1_in;
+    }
+    
+
+	/**
+     * Déplacement du joueur.
+     *
+     * L'entrée dans une salle peut conclure le jeu (en cas de victoire, par exemple); cette
+     * décision est déléguée à la salle de destination.
+     *
+     * @param room Salle dans laquelle le joueur arrive.
+     * @return <code>true</code> si le jeu est fini.
+     * @see Room#enter(Game)
+     */
+	@Override
+    protected boolean enterRoom(Room room) {
+        currentRoom = room;
+        healthPoints=healthPoints-dec;
+        boolean enter=currentRoom.enter(this);
+        
+        if (enter==false){	/*false indique que currentRoom n'est pas une sortie*/
+        	if (healthPoints<=0){
+        	  
+        		System.out.println("Vous avez 0 point de vie.");
+        		System.out.println("Vous êtes mort ! La partie est perdue.");
+        		return true;
+        	}
+        	else{
+        		if (healthPoints==1){
+        			System.out.println("Vous avez 1 point de vie.");
+        		}
+        		else{
+        			System.out.println("Vous avez "+ healthPoints+" points de vie.");
+        		}
+        	}
+        }
+        return enter;
     }
 
 }

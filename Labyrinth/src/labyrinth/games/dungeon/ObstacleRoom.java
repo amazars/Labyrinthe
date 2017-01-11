@@ -12,9 +12,11 @@ public class ObstacleRoom extends Room{
 		difficulty = difficulte;
 	}
 	
+	@Override
 	public boolean enter(Game game) {
         System.out.println(fullDescription());
-        game.setHealth(this.difficulty);
+        System.out.println("vous perdez "+this.difficulty+" points de vie");
+        ((DungeonGame) game).setHealthDown(this.difficulty);
         beVisited();
         return false;
     }
