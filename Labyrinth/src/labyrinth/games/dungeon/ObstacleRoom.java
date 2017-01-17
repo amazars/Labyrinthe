@@ -1,6 +1,5 @@
 package labyrinth.games.dungeon;
 
-import labyrinth.Direction;
 import labyrinth.Game;
 import labyrinth.Room;
 import labyrinth.games.dungeon.DungeonGame;
@@ -21,4 +20,11 @@ public class ObstacleRoom extends Room{
         return false;
     }
 	
+	@Override
+	public char characterDescription() { return intToChar(this.difficulty); }
+	
+	private char intToChar(int i){
+		String s=""+i;
+		return s.charAt(0);
+	}
 }

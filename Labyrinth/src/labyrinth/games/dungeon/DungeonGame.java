@@ -10,7 +10,8 @@ public class DungeonGame extends Game{
 	 protected int dec;
 	 
 	public static void main(String[] args) {
-		new DungeonGame(10, 1).play();
+		// 15 points de départ, 1 point en moins à chaque déplacement
+		new DungeonGame(15, 1).play();
     }
 	
 	public DungeonGame(int healthPoints, int dec){
@@ -26,17 +27,16 @@ public class DungeonGame extends Game{
     }
     
     protected Room createRooms() {
-    	Room c1_in, a2, b2, c2, f3, a3, c3, d3, e3, a4_out, c4, e4, e5, c5, d5, f5, d6;
+    	Room c1_in, a2, b2, c2, f3, a3, c3, d3, e3, a4_out, c4, e4, e5, c5, d5, d6;
     	
     	// création des pièces
     	a2 = new Room("bloqué par Le Destroyer Stellaire classe - 1"); //bloqué il faut la force
         a3 = new Room("en train de détruire le bouclier sur Endor");
-        a4_out = new ExitRoom("dans l'étoile de la mort");
         b2 = new Room("sur Yog 'Dhul"); 
         c1_in = new Room("sur Tatooine");
         c2 = new Room("dans le Faucon Millenium");
         c3 = new Room("sur Ando");
-        c4 = new ObstacleRoom("touché par le Patrouilleur Firespray de Booba Fett", 1); //perte de point
+        c4 = new MonsterRoom("dans la zone d'un Patrouilleur Firespray de Booba Fett"); //perte de point
         c5 = new Room("sur Colomus");
         d3 = new Room("sur Naboo");
         d5 = new Room("sur Coruscant");
@@ -46,7 +46,7 @@ public class DungeonGame extends Game{
         e5 = new BonusRoom("sur Hoth, Obi-Wan se revèle à vous", 4); //gain de force
         f3 = new Room("salué par Yoda"); //gain de force : clefs
         
-        
+        a4_out = new ExitRoom("dans l'étoile de la mort", f3);
         // initialisation des sorties des pièces
         a2.setExit(Direction.EAST, b2);
         a2.setExit(Direction.SOUTH, a3);
@@ -70,7 +70,7 @@ public class DungeonGame extends Game{
         d5.setExit(Direction.SOUTH, d6);
         d5.setExit(Direction.WEST, c5);
         d6.setExit(Direction.NORTH, d5);
-        e3.setExit(Direction.EAST, d3);
+        e3.setExit(Direction.WEST, d3);
         e3.setExit(Direction.SOUTH, e4);
         e3.setExit(Direction.EAST, f3);
         e4.setExit(Direction.NORTH, e3);
@@ -117,5 +117,6 @@ public class DungeonGame extends Game{
         }
         return enter;
     }
+	
 
 }

@@ -1,8 +1,6 @@
 package labyrinth.games.dungeon;
 
 import labyrinth.Game;
-import labyrinth.Direction;
-import labyrinth.Game;
 import labyrinth.Room;
 import labyrinth.games.dungeon.DungeonGame;
 
@@ -25,5 +23,8 @@ public class BonusRoom extends Room{
 	    beVisited();
 	    return false;
 	}
-
+	
+	@Override
+	public char characterDescription() {return '+';}
+	
 }
