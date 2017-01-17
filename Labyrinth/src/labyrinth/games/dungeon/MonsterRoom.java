@@ -2,8 +2,6 @@ package labyrinth.games.dungeon;
 
 import java.util.Random;
 
-import labyrinth.Command;
-import labyrinth.Direction;
 import labyrinth.Game;
 import labyrinth.Room;
 

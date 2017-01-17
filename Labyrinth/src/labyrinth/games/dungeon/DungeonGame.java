@@ -30,13 +30,13 @@ public class DungeonGame extends Game{
     	Room c1_in, a2, b2, c2, f3, a3, c3, d3, e3, a4_out, c4, e4, e5, c5, d5, d6;
     	
     	// création des pièces
-    	a2 = new Room("bloqué par Le Destroyer Stellaire classe - 1"); //bloqué il faut la force
+    	a2 = new MonsterRoom("bloqué par Le Destroyer Stellaire classe - 1"); //bloqué il faut la force
         a3 = new Room("en train de détruire le bouclier sur Endor");
         b2 = new Room("sur Yog 'Dhul"); 
         c1_in = new Room("sur Tatooine");
         c2 = new Room("dans le Faucon Millenium");
         c3 = new Room("sur Ando");
-        c4 = new MonsterRoom("dans la zone d'un Patrouilleur Firespray de Booba Fett"); //perte de point
+        c4 = new ObstacleRoom("dans la zone d'un Patrouilleur Firespray de Booba Fett", 2); //perte de point
         c5 = new Room("sur Colomus");
         d3 = new Room("sur Naboo");
         d5 = new Room("sur Coruscant");
@@ -44,9 +44,10 @@ public class DungeonGame extends Game{
         e3 = new Room("sur Dagoba, vous vous êtes ecrasé"); //perte d'un point une seul fois
         e4 = new Room("sur Mustafar");
         e5 = new BonusRoom("sur Hoth, Obi-Wan se revèle à vous", 4); //gain de force
-        f3 = new Room("salué par Yoda"); //gain de force : clefs
-        
+        f3 = new Room("salué par Yoda, il vous remet la clef pour aller sur l'étoile noir"); //gain de clefs
+      
         a4_out = new ExitRoom("dans l'étoile de la mort", f3);
+        
         // initialisation des sorties des pièces
         a2.setExit(Direction.EAST, b2);
         a2.setExit(Direction.SOUTH, a3);
